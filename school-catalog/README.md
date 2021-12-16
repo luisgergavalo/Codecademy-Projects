@@ -1,4 +1,4 @@
-# School Catalog Project CodeCademy#
+# School Catalog Project CodeCademy #
 _This project Codecademy project involves creating an app that generates a catalog of 'PrimarySchool', 'MiddleSchool' and 'HighSchool' classes capable of generating objects which have both unique and inherited properties and methods from a parent 'School' class._
 
 ## Objectives ##
