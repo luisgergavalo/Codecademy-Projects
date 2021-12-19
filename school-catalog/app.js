@@ -22,10 +22,10 @@ class School{
         }
     }
     quickFacts(){
-        console.log(`${this._name} educates ${this._numberOfStudents} students at the ${this._level} level.`)
+        console.log(`${this._name} educates ${this._numberOfStudents} students at the ${this._level} level.`);
     }
     static pickSubstituteTeacher(substituteTeachers){
-        const i = Math.floor(Math.random()*substituteTeachers+1);
+        const i = Math.floor(Math.random()*substituteTeachers.length);
         return substituteTeachers[i];
     }
 }
@@ -44,14 +44,31 @@ class PrimarySchool extends School{
 //Create the second subclass "Middle School"
 class MiddleSchool extends School{
     constructor(name,level,numberOfStudents,sportsTeams){
-        super(name,level,numberOfStudents);
+        super(name,level='middle',numberOfStudents);
         this._sportsTeams = sportsTeams;
     }
 }
 
 //Create the third subclass "High School"
 class HighSchool extends School{
-    constructor(name,level,numberOfStudents){
-
+    constructor(name,level,numberOfStudents,sportsTeams){
+        super(name,level='high',numberOfStudents);
+        this._sportsTeams = sportsTeams;
+    }
+    get sportsTeams(){
+        return this._sportsTeams;
     }
 }
+
+//Instance of the PrimarySchool class
+const lorraineHansbury = new PrimarySchool('Lorraine Hansbury','',514,'Students must be picked up by a parent, guardian, or a family member over the age of 13.')
+
+console.log(lorraineHansbury.quickFacts());
+
+console.log(School.pickSubstituteTeacher(['Jamal Crawford', 'Lou Williams', 'J. R. Smith', 'James Harden', 'Jason Terry', 'Manu Ginobli']));
+
+//Instance of the HighSchool class
+const alSmith = new HighSchool('Al E. Smith','',415,['Baseball','Basketball','Volleyball','Track and Field']);
+
+console.log(alSmith.level);
+console.log(alSmith.sportsTeams);
